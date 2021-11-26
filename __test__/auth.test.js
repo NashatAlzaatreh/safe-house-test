@@ -9,7 +9,12 @@ const faker = require("faker");
 // const { db } = require("../src/models/index");
 
 let users = {
-  admin: { username: faker.name.findName(), password: "test", role: "admin" },
+  admin: {
+    username: faker.name.findName(),
+    password: "test",
+    Email: "test",
+    role: "admin",
+  },
   // editor: { username: faker.name.findName(), password: "test", role: "editor" },
   // user: { username: faker.name.findName(), password: "test", role: "user" },
 };
