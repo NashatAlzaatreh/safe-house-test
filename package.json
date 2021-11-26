@@ -11,7 +11,7 @@
     "init:config": "sequelize init:config",
     "db:create": "sequelize db:create",
     "test-watch": "NODE_ENV=test jest --watchAll",
-    "test": "NODE_ENV=test jest --runInBand"
+    "test": "NODE_ENV=test jest"
   },
   "repository": {
     "type": "git",
