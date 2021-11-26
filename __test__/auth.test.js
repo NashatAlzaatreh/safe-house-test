@@ -6,7 +6,7 @@ const supertest = require("supertest");
 const { app } = require("../src/server");
 const mockReq = supertest(app);
 const faker = require("faker");
-// const { db } = require("../src/models/index");
+const { db } = require("../src/models/index");
 
 let users = {
   admin: {
@@ -18,6 +18,14 @@ let users = {
   // editor: { username: faker.name.findName(), password: "test", role: "editor" },
   // user: { username: faker.name.findName(), password: "test", role: "user" },
 };
+
+beforeAll(async () => {
+  await db.sync();
+});
+
+afterAll(async () => {
+  await db.drop();
+});
 
 describe("sign-up sign-in", () => {
   Object.keys(users).forEach((user) => {

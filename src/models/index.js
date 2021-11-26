@@ -1,4 +1,5 @@
 "use strict";
+require("dotenv").config();
 
 const userModel = require("./users.js");
 const profileModel = require("../models/profileModel");
@@ -7,7 +8,10 @@ const Collection = require("../models/data-collection");
 
 const { Sequelize, DataTypes } = require("sequelize");
 
-const DATABASE_URL = "postgres://localhost:5432/midProjectTestDb";
+const DATABASE_URL =
+  process.env.NODE_ENV === "test"
+    ? "sqlite:memory:"
+    : "postgres://localhost:5432/midProjectTestDb";
 
 let sequelizeOptions =
   process.env.NODE_ENV === "production"
